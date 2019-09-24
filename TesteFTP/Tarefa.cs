@@ -19,22 +19,27 @@ namespace TesteFTP
 
         public Tarefa(DateTimePicker hrAgendada) {
             _hrAgendada = hrAgendada;
-            if (VerificaHorario())
-                IniciarProcesso();
+            IniciarProcesso();                
         }
 
-        public void IniciarProcesso() {
-            // inicia a verificação depois o download.
-            
+        private void IniciarProcesso() {
+            if (VerificaHorario()) {
 
+            }
+            // inicia a verificação depois o download.
+           
         }
 
         private static void SetTimer() {
-            // TODO
+            // TODO -> salvar timer em algum lugar, texto ou banco
         }
 
-        public bool VerificaHorario() {
+        private bool VerificaHorario() {
             // TODO
+            if (_hrAgendada.Value == DateTime.Now) {
+
+            }
+
             
             return true;
         }

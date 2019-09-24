@@ -226,7 +226,6 @@
             this.horarioAgendado.ShowUpDown = true;
             this.horarioAgendado.Size = new System.Drawing.Size(100, 20);
             this.horarioAgendado.TabIndex = 3;
-            this.horarioAgendado.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label4
             // 
@@ -249,7 +248,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

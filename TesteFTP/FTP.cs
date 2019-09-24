@@ -9,7 +9,7 @@ namespace TesteFTP
         //definir uma classe com os dados necessários para realizar essas operações e usar a classe como parâmetro desses métodos.
         
         //retornar List de arquivos e p/ cada item na lista realizar o upload/ download
-        public async void EnviarArquivoFTP(string arquivo, string url, string usuario, string senha) {
+        protected async void EnviarArquivoFTP(string arquivo, string url, string usuario, string senha) {
             try {  
                 FileInfo arquivoInfo = new FileInfo(arquivo);
 
@@ -44,7 +44,7 @@ namespace TesteFTP
 
 
         // txtArquivoDownload.Text, txtBaixarPara.Text, txtUsuario.Text, txtSenha.Text
-        public async void BaixarArquivoFTP(string url, string local, string usuario, string senha) {
+        protected async void BaixarArquivoFTP(string url, string local, string usuario, string senha) {
             try {
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(new Uri(url));
 

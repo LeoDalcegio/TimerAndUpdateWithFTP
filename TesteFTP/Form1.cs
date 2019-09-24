@@ -1,39 +1,37 @@
 ﻿using System;
 using System.Security;
-using System.IO;
 using System.Windows.Forms;
 
 namespace TesteFTP
 {
     public partial class Form1 : Form
     {
-        FTP ftp = new FTP();
-        
+        DadosUsuario dados;
 
         public Form1() {
             InitializeComponent();
-            Tarefa tarefa = new Tarefa(horarioAgendado);
-
-            // Windows Service com TopShelf 
+            Tarefa tarefa = new Tarefa(horarioAgendado); // vai controlar o timer e os download auto
+            
+        }
+        // da de fazer tb pra qndo alterar algo da tela essa alteração vai para o set da var
+        // correspondente da DadosUsuario e dai passo a instancia dela como parametro, 
+        // faz mais sentido para futura manutenção
+        private void PreencheDadosUsuario() {
+            dados = new DadosUsuario(txtUsuario.Text, txtSenha.Text, 
+                txtEnderecoServidorFTP.Text, txtArquivoUpload.Text, txtArquivoUpload.Text, 
+                txtBaixarPara.Text);
         }
 
-        
-
         private void btnEnviarArquivo_Click(object sender, EventArgs e) {
-            if (validaInformacaoServidorFTP()) {
-                if (!string.IsNullOrEmpty(txtArquivoUpload.Text)) {
-                    string urlArquivoEnviar = txtEnderecoServidorFTP.Text + Path.GetFullPath(txtArquivoUpload.Text);
-                    try {
-                        ftp.EnviarArquivoFTP(txtArquivoUpload.Text, urlArquivoEnviar, txtUsuario.Text, txtSenha.Text);
-                    }
-                    catch (Exception ex) {
-                        MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+            PreencheDadosUsuario();
+            Funcoes funcao = new Funcoes(dados);
+            funcao.UploadArquivo();
+        }
 
-                }
-            } else {
-                MessageBox.Show("Informações do servidor incompletas", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        private void btnBaixarArquivo_Click(object sender, EventArgs e) {
+            PreencheDadosUsuario();
+            Funcoes funcao = new Funcoes(dados);
+            funcao.DownloadArquivo();
         }
 
         private void btnProcurar_Click(object sender, EventArgs e) {
@@ -62,46 +60,6 @@ namespace TesteFTP
                                                " ele pode estar corrompido.\n\nErro reportado : " + ex.Message);
                 }
             }
-        }
-
-        private void btnBaixarArquivo_Click(object sender, EventArgs e) {
-            if (validaInformacaoServidorFTP()) {
-                if (validaInformacaoDownload()) {
-                    try {
-                        ftp.BaixarArquivoFTP(txtArquivoDownload.Text, txtBaixarPara.Text, txtUsuario.Text, txtSenha.Text);
-                    }catch(Exception ex) {
-                        MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                } else {
-                    MessageBox.Show("Informações para download incompletas", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            } else {
-                MessageBox.Show("Informações do sevidor incompletas", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private bool validaInformacaoServidorFTP() {
-            if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtSenha.Text) || string.IsNullOrEmpty(txtEnderecoServidorFTP.Text)) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        private bool validaInformacaoDownload() {
-            if (string.IsNullOrEmpty(txtArquivoDownload.Text) || string.IsNullOrEmpty(txtBaixarPara.Text)) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e) {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e) {
-            
-        }
+        }        
     }
 }

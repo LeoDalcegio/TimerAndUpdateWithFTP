@@ -7,13 +7,17 @@ namespace TesteFTP
 {
     public partial class Form1 : Form
     {
+        FTP ftp = new FTP();
+        
+
         public Form1() {
             InitializeComponent();
-            //thread? onStart(), sleep 1h e volta, ou timer
+            Tarefa tarefa = new Tarefa(horarioAgendado);
+
             // Windows Service com TopShelf 
         }
 
-        FTP ftp = new FTP();
+        
 
         private void btnEnviarArquivo_Click(object sender, EventArgs e) {
             if (validaInformacaoServidorFTP()) {

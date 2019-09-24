@@ -43,7 +43,7 @@
             this.txtArquivoDownload = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.horarioAgendado = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -218,15 +218,15 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Arquivo:";
             // 
-            // dateTimePicker1
+            // horarioAgendado
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(276, 356);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.horarioAgendado.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.horarioAgendado.Location = new System.Drawing.Point(276, 356);
+            this.horarioAgendado.Name = "horarioAgendado";
+            this.horarioAgendado.ShowUpDown = true;
+            this.horarioAgendado.Size = new System.Drawing.Size(100, 20);
+            this.horarioAgendado.TabIndex = 3;
+            this.horarioAgendado.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label4
             // 
@@ -243,7 +243,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 386);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.horarioAgendado);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -281,7 +281,7 @@
         private System.Windows.Forms.TextBox txtArquivoDownload;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker horarioAgendado;
         private System.Windows.Forms.Label label4;
     }
 }

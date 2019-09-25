@@ -4,20 +4,20 @@ using System.Windows.Forms;
 
 namespace TesteFTP
 {
-    class Funcoes:FTP
+    class FuncoesFTP:FTP
     {
-        DadosUsuario dados;
+        private DadosUsuario _dados;
 
-        public Funcoes(DadosUsuario dados) {
-            
+        public FuncoesFTP(DadosUsuario dados) {
+            _dados = dados;
         }
 
         public void DownloadArquivo() {
             if (ValidaInformacaoServidorFTP()) {
-                if (ValidaInformacaoDownload()) {
+                if (ValidaInformacaoDownload()) { //provavel q n vai precisar
                     try {
-                        BaixarArquivoFTP(dados._arquivoDownload, dados._BaixarPara, dados._usuario, 
-                            dados._senha);
+                        BaixarArquivoFTP(_dados._arquivoDownload, _dados._BaixarPara, _dados._usuario, 
+                            _dados._senha);
                     }
                     catch (Exception ex) {
                         MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -32,10 +32,10 @@ namespace TesteFTP
 
         public void UploadArquivo() {
             if (ValidaInformacaoServidorFTP()) {
-                if (!string.IsNullOrEmpty(dados._arquivoUpload)) {
-                    string urlArquivoEnviar = dados._enderecoServidor + Path.GetFullPath(dados._arquivoUpload);
+                if (!string.IsNullOrEmpty(_dados._arquivoUpload)) {
+                    string urlArquivoEnviar = _dados._enderecoServidor + Path.GetFullPath(_dados._arquivoUpload);
                     try {
-                        EnviarArquivoFTP(dados._arquivoUpload, urlArquivoEnviar, dados._usuario, dados._senha);
+                        EnviarArquivoFTP(_dados._arquivoUpload, urlArquivoEnviar, _dados._usuario, _dados._senha);
                     }
                     catch (Exception ex) {
                         MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -48,7 +48,7 @@ namespace TesteFTP
         }
 
         private bool ValidaInformacaoServidorFTP() {
-            if (string.IsNullOrEmpty(dados._usuario) || string.IsNullOrEmpty(dados._senha) || string.IsNullOrEmpty(dados._enderecoServidor) {
+            if (string.IsNullOrEmpty(_dados._usuario) || string.IsNullOrEmpty(_dados._senha) || string.IsNullOrEmpty(_dados._enderecoServidor)){
                 return false;
             } else {
                 return true;
@@ -56,7 +56,7 @@ namespace TesteFTP
         }
 
         private bool ValidaInformacaoDownload() {
-            if (string.IsNullOrEmpty(dados._arquivoDownload) || string.IsNullOrEmpty(dados._BaixarPara)) {
+            if (string.IsNullOrEmpty(_dados._arquivoDownload) || string.IsNullOrEmpty(_dados._BaixarPara)) {
                 return false;
             } else {
                 return true;

@@ -7,10 +7,8 @@ namespace TesteFTP
     class FTP
     {
         // serviço do windows para determinado horario
-        // retornar List de arquivos, 
-        // flag dos que tem que baixar 
+        // retornar List de arquivos, dos que tem que baixar 
         // p/ cada item na lista realizar o download
-
 
         protected async void BaixarArquivoFTP(string url, string local, string usuario, string senha) {
             try {

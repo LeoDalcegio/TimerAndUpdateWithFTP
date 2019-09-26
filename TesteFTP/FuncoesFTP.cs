@@ -14,10 +14,10 @@ namespace TesteFTP
 
         public void DownloadArquivo() {
             if (ValidaInformacaoServidorFTP()) {
-                if (ValidaInformacaoDownload()) { //provavel q n vai precisar
+                if (ValidaInformacaoDownload()) {
                     try {
-                        BaixarArquivoFTP(_dados._arquivoDownload, _dados._BaixarPara, _dados._usuario, 
-                            _dados._senha);
+                        BaixarArquivoFTP(_dados.ArquivoDownload, _dados.BaixarPara, _dados.Usuario, 
+                            _dados.Senha);
                     }
                     catch (Exception ex) {
                         MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -31,7 +31,7 @@ namespace TesteFTP
         }
 
         private bool ValidaInformacaoServidorFTP() {
-            if (string.IsNullOrEmpty(_dados._usuario) || string.IsNullOrEmpty(_dados._senha) || string.IsNullOrEmpty(_dados._enderecoServidor)){
+            if (string.IsNullOrEmpty(_dados.Usuario) || string.IsNullOrEmpty(_dados.Senha) || string.IsNullOrEmpty(_dados.EnderecoServidor)){
                 return false;
             } else {
                 return true;
@@ -39,7 +39,7 @@ namespace TesteFTP
         }
 
         private bool ValidaInformacaoDownload() {
-            if (string.IsNullOrEmpty(_dados._arquivoDownload) || string.IsNullOrEmpty(_dados._BaixarPara)) {
+            if (string.IsNullOrEmpty(_dados.ArquivoDownload) || string.IsNullOrEmpty(_dados.BaixarPara)) {
                 return false;
             } else {
                 return true;

@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="FTP.cs" />
     <Compile Include="FuncoesFTP.cs" />
+    <Compile Include="GerenciaArquivos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tarefa.cs" />

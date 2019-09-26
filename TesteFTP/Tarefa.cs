@@ -11,7 +11,6 @@ namespace TesteFTP
     {
         // tafera vai ser executada com base no timer, que será definido na tela pelo usuário
 
-        private static System.Timers.Timer aTimer;
 
         private DateTimePicker _hrAgendada;
         public DadosUsuario _dados;

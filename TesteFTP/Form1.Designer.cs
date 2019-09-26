@@ -32,11 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BtnProcurar = new System.Windows.Forms.Button();
-            this.BtnEnviarArquivo = new System.Windows.Forms.Button();
-            this.TxtArquivoUpload = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnBaixarArquivo = new System.Windows.Forms.Button();
             this.TxtBaixarPara = new System.Windows.Forms.TextBox();
@@ -47,7 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -115,55 +109,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Usuário:";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.BtnProcurar);
-            this.groupBox2.Controls.Add(this.BtnEnviarArquivo);
-            this.groupBox2.Controls.Add(this.TxtArquivoUpload);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(9, 117);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(379, 106);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Upload";
-            // 
-            // BtnProcurar
-            // 
-            this.BtnProcurar.Location = new System.Drawing.Point(339, 41);
-            this.BtnProcurar.Name = "BtnProcurar";
-            this.BtnProcurar.Size = new System.Drawing.Size(28, 22);
-            this.BtnProcurar.TabIndex = 5;
-            this.BtnProcurar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnProcurar.UseVisualStyleBackColor = true;
-            this.BtnProcurar.Click += new System.EventHandler(this.BtnProcurar_Click);
-            // 
-            // BtnEnviarArquivo
-            // 
-            this.BtnEnviarArquivo.Location = new System.Drawing.Point(14, 68);
-            this.BtnEnviarArquivo.Name = "BtnEnviarArquivo";
-            this.BtnEnviarArquivo.Size = new System.Drawing.Size(353, 28);
-            this.BtnEnviarArquivo.TabIndex = 6;
-            this.BtnEnviarArquivo.Text = "Enviar arquivo";
-            this.BtnEnviarArquivo.UseVisualStyleBackColor = true;
-            this.BtnEnviarArquivo.Click += new System.EventHandler(this.BtnEnviarArquivo_Click);
-            // 
-            // TxtArquivoUpload
-            // 
-            this.TxtArquivoUpload.Location = new System.Drawing.Point(14, 42);
-            this.TxtArquivoUpload.Name = "TxtArquivoUpload";
-            this.TxtArquivoUpload.Size = new System.Drawing.Size(319, 20);
-            this.TxtArquivoUpload.TabIndex = 4;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Arquivo a Enviar: ";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.BtnBaixarArquivo);
@@ -171,7 +116,7 @@
             this.groupBox3.Controls.Add(this.TxtArquivoDownload);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(9, 231);
+            this.groupBox3.Location = new System.Drawing.Point(9, 113);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(379, 119);
             this.groupBox3.TabIndex = 2;
@@ -242,7 +187,7 @@
             // 
             this.groupBox4.Controls.Add(this.HorarioAgendado);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Location = new System.Drawing.Point(9, 371);
+            this.groupBox4.Location = new System.Drawing.Point(9, 253);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(378, 89);
             this.groupBox4.TabIndex = 5;
@@ -253,17 +198,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 470);
+            this.ClientSize = new System.Drawing.Size(397, 470);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -281,11 +224,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtEnderecoServidorFTP;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button BtnProcurar;
-        private System.Windows.Forms.Button BtnEnviarArquivo;
-        private System.Windows.Forms.TextBox TxtArquivoUpload;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button BtnBaixarArquivo;
         private System.Windows.Forms.TextBox TxtBaixarPara;

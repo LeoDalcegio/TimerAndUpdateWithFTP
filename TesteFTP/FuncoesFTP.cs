@@ -30,23 +30,6 @@ namespace TesteFTP
             }
         }
 
-        public void UploadArquivo() {
-            if (ValidaInformacaoServidorFTP()) {
-                if (!string.IsNullOrEmpty(_dados._arquivoUpload)) {
-                    string urlArquivoEnviar = _dados._enderecoServidor + Path.GetFullPath(_dados._arquivoUpload);
-                    try {
-                        EnviarArquivoFTP(_dados._arquivoUpload, urlArquivoEnviar, _dados._usuario, _dados._senha);
-                    }
-                    catch (Exception ex) {
-                        MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                }
-            } else {
-                MessageBox.Show("Informações do servidor incompletas", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private bool ValidaInformacaoServidorFTP() {
             if (string.IsNullOrEmpty(_dados._usuario) || string.IsNullOrEmpty(_dados._senha) || string.IsNullOrEmpty(_dados._enderecoServidor)){
                 return false;

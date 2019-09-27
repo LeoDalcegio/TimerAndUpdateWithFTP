@@ -24,7 +24,7 @@ namespace TesteFTP
 
         private void PreencheDadosUsuario() {
             dados = new DadosUsuario(TxtUsuario.Text, TxtSenha.Text, 
-                txtEnderecoServidorFTP.Text, TxtArquivoDownload.Text, TxtBaixarPara.Text);
+                txtEnderecoServidorFTP.Text, TxtLocalDownload.Text, TxtBaixarPara.Text);
         }       
 
         private void BtnBaixarArquivo_Click(object sender, EventArgs e) {

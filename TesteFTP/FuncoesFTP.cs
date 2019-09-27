@@ -16,7 +16,7 @@ namespace TesteFTP
             if (ValidaInformacaoServidorFTP()) {
                 if (ValidaInformacaoDownload()) {
                     try {
-                        BaixarArquivoFTP(_dados.ArquivoDownload, _dados.BaixarPara, _dados.Usuario, 
+                        BaixarArquivoFTP(_dados.LocalDownload, _dados.BaixarPara, _dados.Usuario, 
                             _dados.Senha);
                     }
                     catch (Exception ex) {
@@ -39,7 +39,7 @@ namespace TesteFTP
         }
 
         private bool ValidaInformacaoDownload() {
-            if (string.IsNullOrEmpty(_dados.ArquivoDownload) || string.IsNullOrEmpty(_dados.BaixarPara)) {
+            if ((_dados.LocalDownload == null) || string.IsNullOrEmpty(_dados.BaixarPara)) {
                 return false;
             } else {
                 return true;

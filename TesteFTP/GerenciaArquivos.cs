@@ -12,9 +12,11 @@ namespace TesteFTP
         
         public GerenciaArquivos(DadosUsuario dados) {
             _dados = dados;
+
+            BuscaArquivosDownload();
         }
 
-        public List<string> BuscaArquivosDownload() {
+        private List<string> BuscaArquivosDownload() {
 
             List<string> ArqABaixar = new List<string>();
 

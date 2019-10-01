@@ -9,33 +9,28 @@ namespace TesteFTP
 {
     class Tarefa
     {
-        // tafera vai ser executada com base no timer, 
-        // que será definido na tela pelo usuário
-
-        // criar Windows Service
+        // nao precisa ter botao no time, mas pode,
+        // qndo usuario "fecha" programa
+        // botao salvar
 
 
         private DateTimePicker _hrAgendada;
         public DadosUsuario _dados;
-        
-        public Tarefa(DateTimePicker hrAgendada) {
-            _hrAgendada = hrAgendada;
-            IniciarProcesso();                
-        }
 
         public Tarefa(DateTimePicker hrAgendada, DadosUsuario dados) {
             _hrAgendada = hrAgendada;
             _dados = dados;
-            IniciarProcesso(dados);
+            IniciarTimer();
+            IniciarProcesso();// usuario preenche tudo, ok no timer, qndo da ok,
+                              // inicia timer, qndo chegar, inicio o processo
+                              // no Preenche dados usuario
+            //antes teria que fazer a validação dos form, mover a q esta em func ftp
         }
 
-        private void IniciarProcesso(DadosUsuario dados) {
-            FuncoesFTP funcoesFtp = new FuncoesFTP(dados);
+        private void IniciarTimer() {
             if (VerificaHorario()) {
                 
-                // buscar arquivos, retorna list, download arquivos da list
-                // _dados._arquivoDownload list item
-                // foreach n funcoesFtp.DownloadArquivo()
+
             }
 
         }
@@ -43,10 +38,12 @@ namespace TesteFTP
         private void IniciarProcesso() {
             
             if (VerificaHorario()) {
-                FuncoesFTP funcao = new FuncoesFTP(_dados);
+                GerenciaArquivos arquivos = new GerenciaArquivos(_dados);
+
+                // retorna list, foreach na list
                 // gerencia arquivos, DadosUsuario - retornará List
-                // foreach arq com flag (map?) DownloadArquivo
-                funcao.DownloadArquivo();
+                
+                
             }
         }
 

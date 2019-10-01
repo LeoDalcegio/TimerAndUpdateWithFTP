@@ -50,13 +50,15 @@
             // 
             this.groupBox1.Controls.Add(this.txtEnderecoServidorFTP);
             this.groupBox1.Controls.Add(this.TxtSenha);
+            this.groupBox1.Controls.Add(this.TxtLocalDownload);
             this.groupBox1.Controls.Add(this.TxtUsuario);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(9, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(379, 100);
+            this.groupBox1.Size = new System.Drawing.Size(379, 128);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Servidor FTP";
@@ -113,19 +115,17 @@
             // 
             this.groupBox3.Controls.Add(this.BtnBaixarArquivo);
             this.groupBox3.Controls.Add(this.TxtBaixarPara);
-            this.groupBox3.Controls.Add(this.TxtLocalDownload);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(9, 113);
+            this.groupBox3.Location = new System.Drawing.Point(9, 141);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(379, 119);
+            this.groupBox3.Size = new System.Drawing.Size(379, 97);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Download";
             // 
             // BtnBaixarArquivo
             // 
-            this.BtnBaixarArquivo.Location = new System.Drawing.Point(14, 80);
+            this.BtnBaixarArquivo.Location = new System.Drawing.Point(14, 46);
             this.BtnBaixarArquivo.Name = "BtnBaixarArquivo";
             this.BtnBaixarArquivo.Size = new System.Drawing.Size(353, 28);
             this.BtnBaixarArquivo.TabIndex = 9;
@@ -135,14 +135,14 @@
             // 
             // TxtBaixarPara
             // 
-            this.TxtBaixarPara.Location = new System.Drawing.Point(73, 54);
+            this.TxtBaixarPara.Location = new System.Drawing.Point(73, 20);
             this.TxtBaixarPara.Name = "TxtBaixarPara";
             this.TxtBaixarPara.Size = new System.Drawing.Size(294, 20);
             this.TxtBaixarPara.TabIndex = 8;
             // 
             // TxtLocalDownload
             // 
-            this.TxtLocalDownload.Location = new System.Drawing.Point(73, 20);
+            this.TxtLocalDownload.Location = new System.Drawing.Point(73, 90);
             this.TxtLocalDownload.Name = "TxtLocalDownload";
             this.TxtLocalDownload.Size = new System.Drawing.Size(294, 20);
             this.TxtLocalDownload.TabIndex = 7;
@@ -150,7 +150,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 59);
+            this.label5.Location = new System.Drawing.Point(11, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 3;
@@ -159,7 +159,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 23);
+            this.label7.Location = new System.Drawing.Point(11, 93);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 13);
             this.label7.TabIndex = 1;
@@ -187,7 +187,7 @@
             // 
             this.groupBox4.Controls.Add(this.HorarioAgendado);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Location = new System.Drawing.Point(9, 253);
+            this.groupBox4.Location = new System.Drawing.Point(10, 253);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(378, 89);
             this.groupBox4.TabIndex = 5;

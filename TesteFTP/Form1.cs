@@ -6,23 +6,23 @@ namespace TesteFTP
 {
     public partial class Form1 : Form
     {
-        DadosUsuario dados;
-        Tarefa tarefa;
+        DadosUsuario dados;        
 
         public Form1() {
             InitializeComponent();
+
+            // se usuario está reabrindo o app
             if (!string.IsNullOrEmpty(TxtUsuario.Text) && !string.IsNullOrEmpty(TxtSenha.Text) && !string.IsNullOrEmpty(txtEnderecoServidorFTP.Text)) {
                 PreencheDadosUsuario();
-                tarefa = new Tarefa(HorarioAgendado, dados);
-            } else {
-                tarefa = new Tarefa(HorarioAgendado);
+                Tarefa tarefa = new Tarefa(HorarioAgendado, dados);
             }
-
-            // cada vez q altero algo eu vou lá e tarefa._dados.alterado, 
-            // p qndo chegar no timer se tiver esses dados eu usar eles
+    
         }
 
-        private void PreencheDadosUsuario() {
+        // botao de salvar
+
+        private void PreencheDadosUsuario() { //valida form
+            // ValidaDadosUsuario()
             dados = new DadosUsuario(TxtUsuario.Text, TxtSenha.Text, 
                 txtEnderecoServidorFTP.Text, TxtLocalDownload.Text, TxtBaixarPara.Text);
         }       

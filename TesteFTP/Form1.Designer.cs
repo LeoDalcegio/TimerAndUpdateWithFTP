@@ -28,16 +28,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEnderecoServidorFTP = new System.Windows.Forms.TextBox();
             this.TxtSenha = new System.Windows.Forms.TextBox();
+            this.TxtDirArqsServidor = new System.Windows.Forms.TextBox();
             this.TxtUsuario = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnBaixarArquivo = new System.Windows.Forms.Button();
-            this.TxtBaixarPara = new System.Windows.Forms.TextBox();
-            this.TxtLocalDownload = new System.Windows.Forms.TextBox();
+            this.TxtDirArqLocal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.HorarioAgendado = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -50,7 +50,7 @@
             // 
             this.groupBox1.Controls.Add(this.txtEnderecoServidorFTP);
             this.groupBox1.Controls.Add(this.TxtSenha);
-            this.groupBox1.Controls.Add(this.TxtLocalDownload);
+            this.groupBox1.Controls.Add(this.TxtDirArqsServidor);
             this.groupBox1.Controls.Add(this.TxtUsuario);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label2);
@@ -77,12 +77,28 @@
             this.TxtSenha.Size = new System.Drawing.Size(100, 20);
             this.TxtSenha.TabIndex = 2;
             // 
+            // TxtDirArqsServidor
+            // 
+            this.TxtDirArqsServidor.Location = new System.Drawing.Point(73, 90);
+            this.TxtDirArqsServidor.Name = "TxtDirArqsServidor";
+            this.TxtDirArqsServidor.Size = new System.Drawing.Size(294, 20);
+            this.TxtDirArqsServidor.TabIndex = 7;
+            // 
             // TxtUsuario
             // 
             this.TxtUsuario.Location = new System.Drawing.Point(73, 20);
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.Size = new System.Drawing.Size(100, 20);
             this.TxtUsuario.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 93);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(36, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Local:";
             // 
             // label2
             // 
@@ -114,7 +130,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.BtnBaixarArquivo);
-            this.groupBox3.Controls.Add(this.TxtBaixarPara);
+            this.groupBox3.Controls.Add(this.TxtDirArqLocal);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(9, 141);
             this.groupBox3.Name = "groupBox3";
@@ -133,19 +149,12 @@
             this.BtnBaixarArquivo.UseVisualStyleBackColor = true;
             this.BtnBaixarArquivo.Click += new System.EventHandler(this.BtnBaixarArquivo_Click);
             // 
-            // TxtBaixarPara
+            // TxtDirArqLocal
             // 
-            this.TxtBaixarPara.Location = new System.Drawing.Point(73, 20);
-            this.TxtBaixarPara.Name = "TxtBaixarPara";
-            this.TxtBaixarPara.Size = new System.Drawing.Size(294, 20);
-            this.TxtBaixarPara.TabIndex = 8;
-            // 
-            // TxtLocalDownload
-            // 
-            this.TxtLocalDownload.Location = new System.Drawing.Point(73, 90);
-            this.TxtLocalDownload.Name = "TxtLocalDownload";
-            this.TxtLocalDownload.Size = new System.Drawing.Size(294, 20);
-            this.TxtLocalDownload.TabIndex = 7;
+            this.TxtDirArqLocal.Location = new System.Drawing.Point(73, 20);
+            this.TxtDirArqLocal.Name = "TxtDirArqLocal";
+            this.TxtDirArqLocal.Size = new System.Drawing.Size(294, 20);
+            this.TxtDirArqLocal.TabIndex = 8;
             // 
             // label5
             // 
@@ -155,15 +164,6 @@
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Baixar para:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Local:";
             // 
             // HorarioAgendado
             // 
@@ -226,8 +226,8 @@
         private System.Windows.Forms.TextBox txtEnderecoServidorFTP;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button BtnBaixarArquivo;
-        private System.Windows.Forms.TextBox TxtBaixarPara;
-        private System.Windows.Forms.TextBox TxtLocalDownload;
+        private System.Windows.Forms.TextBox TxtDirArqLocal;
+        private System.Windows.Forms.TextBox TxtDirArqsServidor;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker HorarioAgendado;

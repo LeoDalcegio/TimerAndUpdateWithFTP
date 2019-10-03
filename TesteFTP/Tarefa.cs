@@ -9,7 +9,7 @@ namespace TesteFTP
 {
     class Tarefa
     {
-        // nao precisa ter botao no time, mas pode,
+        // nao precisa ter botao no timer, mas pode,
         // qndo usuario "fecha" programa
         // botao salvar
 
@@ -21,30 +21,29 @@ namespace TesteFTP
             _hrAgendada = hrAgendada;
             _dados = dados;
             IniciarTimer();
-            IniciarProcesso();// usuario preenche tudo, ok no timer, qndo da ok,
-                              // inicia timer, qndo chegar, inicio o processo
-                              // no Preenche dados usuario
-            //antes teria que fazer a validação dos form, mover a q esta em func ftp
+            IniciarProcessoDownload();                              
+        }
+
+        public Tarefa(DadosUsuario dados) {
+            IniciarProcessoDownload();
+        }
+        
+        private void IniciarProcessoDownload() {
+            FuncoesFTP funcoesFtp = new FuncoesFTP(_dados);
+            GerenciaArquivos arquivos = new GerenciaArquivos(_dados);
+
+            Backup backup = new Backup(_dados, arquivos.ArqsBaixar);
+            
+            foreach (string arq in arquivos.ArqsBaixar) {
+
+                funcoesFtp.DownloadArquivo();
+                
+            }
+             
         }
 
         private void IniciarTimer() {
-            if (VerificaHorario()) {
-                
 
-            }
-
-        }
-
-        private void IniciarProcesso() {
-            
-            if (VerificaHorario()) {
-                GerenciaArquivos arquivos = new GerenciaArquivos(_dados);
-
-                // retorna list, foreach na list
-                // gerencia arquivos, DadosUsuario - retornará List
-                
-                
-            }
         }
 
         private bool VerificaHorario() {

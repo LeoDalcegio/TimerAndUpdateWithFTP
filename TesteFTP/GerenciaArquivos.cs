@@ -8,36 +8,35 @@ namespace TesteFTP
     {
         private DadosUsuario _dados;
         
-        private string[] Arquivos;
-        
+        private string[] LocaisArquivos;
+
+        public List<string> ArqsBaixar = new List<string>();
+
         public GerenciaArquivos(DadosUsuario dados) {
             _dados = dados;
 
-            BuscaArquivosDownload();
+            ArqsBaixar = BuscaArquivosDownload(); //lista que será retornada aq, será usada no foreach
         }
 
         private List<string> BuscaArquivosDownload() {
 
             List<string> ArqABaixar = new List<string>();
 
-            Arquivos = Directory.GetFiles(_dados.LocalDownload);
+            LocaisArquivos = Directory.GetFiles(_dados.DirArqServidor);
 
-            foreach (string arq in Arquivos) {
+            foreach (string arq in LocaisArquivos) {
                 if (ComparaArquivos(arq)) {
                     ArqABaixar.Add(arq);
                 }
-
             }
-
             return ArqABaixar;
-
         }
 
         private bool ComparaArquivos(string arqAtual) {
      
-            string arq = _dados.BaixarPara + '/' + Path.GetFileNameWithoutExtension(arqAtual);
-            if (System.IO.File.Exists(arq)){
-                if (VerificaAlteracao(arq, )) {
+            string arqLocal = _dados.BaixarPara + '/' + Path.GetFileName(arqAtual);
+            if (File.Exists(arqLocal)){
+                if (VerificaAlteracao(arqAtual,arqLocal)) {
                     return true;
                 } else {
                     return false;
@@ -45,16 +44,16 @@ namespace TesteFTP
             }
 
             return false;
-            //verifica se o arqAtual existe na outra pasta (_dados.BaixarPara)
-            // horario alteração diferente, true, adiciona em ArqBaixar
         }
 
         private bool VerificaAlteracao(string caminhoArqServ, string caminhoArqLocal) {
+            FileInfo arqServ = new FileInfo(caminhoArqServ);
+            FileInfo arqLocal = new FileInfo(caminhoArqLocal);
 
+            if(arqServ.LastWriteTime != arqLocal.LastWriteTime) {
+                return true;
+            }
+            return false;
         }
-
-        // método que retorna list com quais arq eu devo baixar
-        // pegar todos os "arq" do _dados.ArquivoDownload(mudar nome)
-        // com as extensões escolhidas e comparar as datas de cada
     }
 }

@@ -16,7 +16,7 @@ namespace TesteFTP
         public Backup(DadosUsuario dados, List<string> arqsParaBkp) {
             _dados = dados;
             _arqsParaBkp = arqsParaBkp;
-            pastaBackup = _dados.BaixarPara + "\backup"; // utilizar parâmetro
+            pastaBackup = _dados.BaixarPara + "\\Backup"; // utilizar parâmetro
             VerificaSePastaExiste();
         }
 
@@ -39,8 +39,10 @@ namespace TesteFTP
         void RealizaBackup() {
             string arqAnterior;
             foreach (string arq in _arqsParaBkp) {
-                arqAnterior = _dados.BaixarPara + '/' + Path.GetFileName(arq);
-                File.Move(arqAnterior, pastaBackup);
+                arqAnterior = _dados.BaixarPara + '\\' + Path.GetFileName(arq);
+                if (File.Exists(arqAnterior)){
+                    File.Move(arqAnterior, pastaBackup);
+                }
             }
         }
     }

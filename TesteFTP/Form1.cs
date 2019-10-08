@@ -12,8 +12,8 @@ namespace TesteFTP
             InitializeComponent();
 
             // se usuario está reabrindo o app
-            if (!string.IsNullOrEmpty(TxtUsuario.Text) && !string.IsNullOrEmpty(TxtSenha.Text) && !string.IsNullOrEmpty(txtEnderecoServidorFTP.Text)) {
-                PreencheDadosUsuario();
+            if (PreencheDadosUsuario(false) == false) {
+                
                 Tarefa tarefa = new Tarefa(HorarioAgendado, dados);
             }
     
@@ -22,18 +22,30 @@ namespace TesteFTP
         // botao de salvar
         // Tarefa tarefa = new Tarefa(HorarioAgendado, dados);
 
-        private void PreencheDadosUsuario() { 
+        private bool PreencheDadosUsuario(bool exibeMsg = true) { 
             if (ValidaInformacaoServidorFTP()) {
                 if (ValidaInformacaoDownload()) {
                     dados = new DadosUsuario(TxtUsuario.Text, TxtSenha.Text,
                     txtEnderecoServidorFTP.Text, TxtDirArqsServidor.Text, TxtDirArqLocal.Text);
+
+                    return false;
+
                 } else {
-                    MessageBox.Show("Informações para download incorretas", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (exibeMsg) {
+                        MessageBox.Show("Informações para download incorretas", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    return true;
                 }
                 
             } else {
-                MessageBox.Show("Informações do sevidor incorretas", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (exibeMsg) {
+                    MessageBox.Show("Informações do sevidor incorretas", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+                return true;
             }
+
         }    
 
         private bool ValidaInformacaoServidorFTP() {        
@@ -54,9 +66,10 @@ namespace TesteFTP
         }
 
         private void BtnBaixarArquivo_Click(object sender, EventArgs e) {
-            PreencheDadosUsuario();
-            FuncoesFTP funcao = new FuncoesFTP(dados);
-            funcao.DownloadArquivo();
+
+            if (PreencheDadosUsuario() == false) {
+                Tarefa tarefa = new Tarefa(dados);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e) {

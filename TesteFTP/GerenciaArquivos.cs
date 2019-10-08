@@ -34,7 +34,7 @@ namespace TesteFTP
 
         private bool ComparaArquivos(string arqAtual) {
      
-            string arqLocal = _dados.BaixarPara + '/' + Path.GetFileName(arqAtual);
+            string arqLocal = _dados.BaixarPara + '\\' + Path.GetFileName(arqAtual);
             if (File.Exists(arqLocal)){
                 if (VerificaAlteracao(arqAtual,arqLocal)) {
                     return true;
@@ -53,6 +53,7 @@ namespace TesteFTP
             if(arqServ.LastWriteTime != arqLocal.LastWriteTime) {
                 return true;
             }
+
             return false;
         }
     }

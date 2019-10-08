@@ -20,15 +20,17 @@ namespace TesteFTP
         public Tarefa(DateTimePicker hrAgendada, DadosUsuario dados) {
             _hrAgendada = hrAgendada;
             _dados = dados;
-            IniciarTimer();
             IniciarProcessoDownload();                              
         }
 
+        // chamada pelo botão de download
         public Tarefa(DadosUsuario dados) {
+            _dados = dados;
             IniciarProcessoDownload();
         }
         
         private void IniciarProcessoDownload() {
+
             FuncoesFTP funcoesFtp = new FuncoesFTP(_dados);
             GerenciaArquivos arquivos = new GerenciaArquivos(_dados);
 
@@ -42,9 +44,7 @@ namespace TesteFTP
              
         }
 
-        private void IniciarTimer() {
-
-        }
+        
 
         private bool VerificaHorario() {
             if (_hrAgendada.Value == DateTime.Now) {

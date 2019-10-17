@@ -4,27 +4,30 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TesteFTP.Util;
 
 namespace TesteFTP
 {
-    class Backup
+    class Backup 
     {
-        DadosUsuario _dados;
-        List<string> _arqsParaBkp;
-        string pastaBackup;
+        readonly DadosUsuario _dados;
+        readonly List<string> _arqsParaBkp;
+        readonly string _pastaBackup;
 
         public Backup(DadosUsuario dados, List<string> arqsParaBkp) {
+            
             _dados = dados;
             _arqsParaBkp = arqsParaBkp;
-            pastaBackup = _dados.BaixarPara + "\\Backup"; // utilizar parâmetro
+            RetornaDiretorios diretorios = new RetornaDiretorios(dados);
+            _pastaBackup = diretorios.DiretorioBackup(); 
             VerificaSePastaExiste();
         }
 
         void VerificaSePastaExiste() {
 
-            if (!Directory.Exists(pastaBackup)) {
+            if (!Directory.Exists(_pastaBackup)) {
 
-                Directory.CreateDirectory(pastaBackup);
+                Directory.CreateDirectory(_pastaBackup);
 
                 RealizaBackup();
 
@@ -41,7 +44,7 @@ namespace TesteFTP
             foreach (string arq in _arqsParaBkp) {
                 arqAnterior = _dados.BaixarPara + '\\' + Path.GetFileName(arq);
                 if (File.Exists(arqAnterior)){
-                    File.Move(arqAnterior, pastaBackup);
+                    File.Move(arqAnterior, _pastaBackup);
                 }
             }
         }

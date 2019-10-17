@@ -6,7 +6,7 @@ namespace TesteFTP
 {
     class GerenciaArquivos
     {
-        private DadosUsuario _dados;
+        private readonly DadosUsuario _dados;
 
         private string[] LocaisArquivos;
 

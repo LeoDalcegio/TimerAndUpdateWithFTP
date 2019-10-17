@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security;
 using System.Windows.Forms;
-using TesteFTP.ArqsEDiretorios;
+using TesteFTP.JSON;
 
 namespace TesteFTP
 {
@@ -83,7 +83,7 @@ namespace TesteFTP
                     txtEnderecoServidorFTP.Text, TxtDirArqsServidor.Text, TxtDirArqLocal.Text);
             }
 
-            JSON json = new JSON(dados);
+            FuncoesJSON json = new FuncoesJSON(dados);
             
         }
     }

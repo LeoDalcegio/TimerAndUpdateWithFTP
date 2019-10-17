@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security;
 using System.Windows.Forms;
+using TesteFTP.ArqsEDiretorios;
 
 namespace TesteFTP
 {
@@ -74,6 +75,16 @@ namespace TesteFTP
 
         private void Form1_Load(object sender, EventArgs e) {
 
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
+            if(dados == null) {
+                dados = new DadosUsuario(TxtUsuario.Text, TxtSenha.Text,
+                    txtEnderecoServidorFTP.Text, TxtDirArqsServidor.Text, TxtDirArqLocal.Text);
+            }
+
+            JSON json = new JSON(dados);
+            
         }
     }
 }

@@ -44,8 +44,6 @@ namespace TesteFTP
              
         }
 
-        
-
         private bool VerificaHorario() {
             if (_hrAgendada.Value == DateTime.Now) {
                 return true;

@@ -37,6 +37,7 @@ namespace TesteFTP.JSON
             diretorios.CriaDiretorio(DiretorioDadosTela);
 
 
+
             // busca no dir JSON e retorna DadosUsuario
             //loop no arqJSON
 

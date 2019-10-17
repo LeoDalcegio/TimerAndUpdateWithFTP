@@ -12,12 +12,12 @@ namespace TesteFTP.JSON
     {
         readonly DadosUsuario _dados;
         readonly string DiretorioDadosTela;
-
+        readonly Diretorios diretorios;
 
         public FuncoesJSON(DadosUsuario dados)
         {
             _dados = dados;
-            RetornaDiretorios diretorios = new RetornaDiretorios(dados);
+            diretorios = new Diretorios(dados);
             DiretorioDadosTela = diretorios.DiretorioDadosTelaJSON();
         }
 
@@ -29,26 +29,17 @@ namespace TesteFTP.JSON
 
         public void SalvaDadosTela()
         {
-            // busca _dados e salva num JSON, colocar em outra classe para salvar, funcoesJSON e JSON
-            // colocar em outra classe "Util" o diretorio do salvar json e dir bkp
+            
         }
 
-        public DadosUsuario BuscaDadosTela()
+        public DadosUsuario BuscaDadosTelaSalvo()
         {
+            diretorios.CriaDiretorio(DiretorioDadosTela);
 
-            if (!Directory.Exists(DiretorioDadosTela))
-            {
 
-                Directory.CreateDirectory(DiretorioDadosTela);
-                //JSON busca dados
-            }
-            else
-            {
-                //JSON busca dados
-            }
             // busca no dir JSON e retorna DadosUsuario
             //loop no arqJSON
- 
+
         }
     }
 }

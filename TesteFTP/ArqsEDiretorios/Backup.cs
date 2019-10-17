@@ -18,7 +18,7 @@ namespace TesteFTP
             
             _dados = dados;
             _arqsParaBkp = arqsParaBkp;
-            RetornaDiretorios diretorios = new RetornaDiretorios(dados);
+            Diretorios diretorios = new Diretorios(dados);
             _pastaBackup = diretorios.DiretorioBackup(); 
             VerificaSePastaExiste();
         }

@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TesteFTP.Util
 {
-    class RetornaDiretorios
+    class Diretorios
     {
         DadosUsuario _dados;
 
-        public RetornaDiretorios(DadosUsuario dados)
+        public Diretorios(DadosUsuario dados)
         {
             _dados = dados;
         }
@@ -23,6 +24,17 @@ namespace TesteFTP.Util
         public string DiretorioDadosTelaJSON()
         {
             return _dados.BaixarPara + "\\Backup\\DadosTela";
+        }
+
+        public void CriaDiretorio(string diretorio)
+        {
+            if (!Directory.Exists(diretorio))
+            {
+                Directory.CreateDirectory(diretorio);
+            }
+            else
+            {
+            }
         }
     }
 }

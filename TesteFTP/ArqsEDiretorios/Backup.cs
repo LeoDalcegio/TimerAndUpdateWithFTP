@@ -14,7 +14,8 @@ namespace TesteFTP
         readonly List<string> _arqsParaBkp;
         readonly string _pastaBackup;
 
-        public Backup(DadosUsuario dados, List<string> arqsParaBkp) {
+        public Backup(DadosUsuario dados, List<string> arqsParaBkp) 
+        {
             
             _dados = dados;
             _arqsParaBkp = arqsParaBkp;
@@ -23,7 +24,8 @@ namespace TesteFTP
             VerificaSePastaExiste();
         }
 
-        void VerificaSePastaExiste() {
+        void VerificaSePastaExiste() 
+        {
 
             if (!Directory.Exists(_pastaBackup)) {
 
@@ -39,7 +41,8 @@ namespace TesteFTP
 
         // foi feito desta forma pois assim, evita com que além de não precisar ler o arquivo
         // e copiar para outra pasta, depois excluir ele antes de fazer o download.
-        void RealizaBackup() {
+        void RealizaBackup() 
+        {
             string arqAnterior;
             foreach (string arq in _arqsParaBkp) {
                 arqAnterior = _dados.BaixarPara + '\\' + Path.GetFileName(arq);

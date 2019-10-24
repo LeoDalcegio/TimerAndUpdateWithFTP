@@ -9,8 +9,10 @@ namespace TesteFTP
         // testar para ver se sobreescreve arq existente, 
         // tem como deletar o arquivo fora daqui tbm
 
-        protected async void BaixarArquivoFTP(string urlServidor, string dirLocal, string usuario, string senha) {
-            try {
+        protected async void BaixarArquivoFTP(string urlServidor, string dirLocal, string usuario, string senha) 
+        {
+            try 
+            {
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(new Uri(urlServidor));
 
                 request.Method = WebRequestMethods.Ftp.DownloadFile;
@@ -29,8 +31,9 @@ namespace TesteFTP
                     }
                 }
             }
-            catch {
-                throw; 
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message); 
             }           
         }
     }

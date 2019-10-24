@@ -8,11 +8,13 @@ namespace TesteFTP
     {
         private DadosUsuario _dados;
 
-        public FuncoesFTP(DadosUsuario dados) {
+        public FuncoesFTP(DadosUsuario dados) 
+        {
             _dados = dados;
         }
 
-        public void DownloadArquivo() {
+        public void DownloadArquivo()
+        {
             try {
                 BaixarArquivoFTP(_dados.DirArqServidor, _dados.BaixarPara, _dados.Usuario,
                     _dados.Senha);

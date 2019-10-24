@@ -8,15 +8,15 @@ namespace TesteFTP
     {
         private readonly DadosUsuario _dados;
 
-        private string[] LocaisArquivos;
+        private string[] _LocaisArquivos;
 
-        public List<string> ArqsBaixar = new List<string>();
+        public List<string> _ArqsBaixar = new List<string>();
 
         public GerenciaArquivos(DadosUsuario dados)
         {
             _dados = dados;
 
-            ArqsBaixar = BuscaArquivosDownload(); //lista que será retornada aq, será usada no foreach
+            _ArqsBaixar = BuscaArquivosDownload(); //lista que será retornada aq, será usada no foreach
         }
 
         private List<string> BuscaArquivosDownload()
@@ -24,9 +24,9 @@ namespace TesteFTP
 
             List<string> ArqABaixar = new List<string>();
 
-            LocaisArquivos = Directory.GetFiles(_dados.DirArqServidor);
+            _LocaisArquivos = Directory.GetFiles(_dados.DirArqServidor);
 
-            foreach (string arq in LocaisArquivos)
+            foreach (string arq in _LocaisArquivos)
             {
                 if (ComparaArquivos(arq))
                 {

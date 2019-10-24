@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Security;
+using TesteFTP.XML;
 using System.Windows.Forms;
-using TesteFTP.JSON;
 
 namespace TesteFTP
 {
@@ -75,13 +74,12 @@ namespace TesteFTP
 
         private void Form1_Load(object sender, EventArgs e) {
 
-           
+            FuncoesXML funcoesXML = new FuncoesXML(dados);
+            
+            DadosUsuario dadosBkp = funcoesXML.BuscaDadosTelaSalvo();
 
-            FuncoesJSON json = new FuncoesJSON(dados);
-            
-            DadosUsuario dadosBkp = json.BuscaDadosTelaSalvo();
-            
-        
+
+                    
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
@@ -90,9 +88,9 @@ namespace TesteFTP
                     txtEnderecoServidorFTP.Text, TxtDirArqsServidor.Text, TxtDirArqLocal.Text);
             }
 
-            FuncoesJSON json = new FuncoesJSON(dados);
-            
-            json.SalvaDadosTela();
+            FuncoesXML funcoesXML = new FuncoesXML(dados);
+
+            funcoesXML.SalvaDadosTela();
         }
     }
 }

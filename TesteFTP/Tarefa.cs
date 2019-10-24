@@ -34,9 +34,9 @@ namespace TesteFTP
             FuncoesFTP funcoesFtp = new FuncoesFTP(_dados);
             GerenciaArquivos arquivos = new GerenciaArquivos(_dados);
 
-            Backup backup = new Backup(_dados, arquivos.ArqsBaixar);
+            Backup backup = new Backup(_dados, arquivos._ArqsBaixar);
             
-            foreach (string arq in arquivos.ArqsBaixar) {
+            foreach (string arq in arquivos._ArqsBaixar) {
 
                 funcoesFtp.DownloadArquivo();
                 

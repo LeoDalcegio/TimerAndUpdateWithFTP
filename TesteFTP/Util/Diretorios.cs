@@ -29,7 +29,7 @@ namespace TesteFTP.Util
 
         public string DiretorioDadosTelaXML()
         {
-            return Path.GetTempPath() + "\\BackupDadosTela\\";
+            return Path.GetTempPath() + "BackupDadosTela";
         }
 
         public void CriaDiretorio(string diretorio)

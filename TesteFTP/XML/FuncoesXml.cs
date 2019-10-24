@@ -32,7 +32,7 @@ namespace TesteFTP.XML
             //diretorios.CriaDiretorio(_DiretorioDadosTela);
             try
             {
-                XmlTextWriter writer = new XmlTextWriter(_DiretorioDadosTela, null);
+                XmlTextWriter writer = new XmlTextWriter(_DiretorioDadosTela + ".xml", null);
 
                 writer.WriteStartDocument();
                 writer.WriteStartElement("DadosTela");
@@ -41,7 +41,7 @@ namespace TesteFTP.XML
                 writer.WriteElementString("EnderecoServidor", _dados.EnderecoServidor);
                 writer.WriteElementString("Senha", _dados.Senha);
                 writer.WriteElementString("Usuario", _dados.Usuario);
-                writer.WriteEndElementAsync();
+                writer.WriteEndElement();
 
                 writer.Close();
             }

@@ -32,7 +32,7 @@ namespace TesteFTP.XML
             //diretorios.CriaDiretorio(_DiretorioDadosTela);
             try
             {
-                XmlTextWriter writer = new XmlTextWriter("C:\\myXmFile.xml", null);
+                XmlTextWriter writer = new XmlTextWriter(_DiretorioDadosTela, null);
 
                 writer.WriteStartDocument();
                 writer.WriteStartElement("DadosTela");

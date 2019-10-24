@@ -11,18 +11,24 @@ namespace TesteFTP.Util
     {
         DadosUsuario _dados;
 
+        public Diretorios() {
+
+        }
+
         public Diretorios(DadosUsuario dados)
         {
             _dados = dados;
         }
 
-        public string DiretorioBackup()
-        {
+        public string DiretorioBackup() {
+            if (_dados == null) return " ";  
             return _dados.BaixarPara + "\\Backup";
+
         }
 
         public string DiretorioDadosTelaJSON()
         {
+            if (_dados == null) return " ";
             return _dados.BaixarPara + "\\Backup\\DadosTela";
         }
 
@@ -32,8 +38,16 @@ namespace TesteFTP.Util
             {
                 Directory.CreateDirectory(diretorio);
             }
-            else
-            {
+        }
+
+        public async void EscreveArquivo(string diretorio) {
+            UnicodeEncoding uniencoding = new UnicodeEncoding();
+
+            byte[] result = uniencoding.GetBytes(diretorio);
+
+            using (FileStream SourceStream = File.Open(diretorio, FileMode.OpenOrCreate)) {
+                SourceStream.Seek(0, SeekOrigin.End);
+                await SourceStream.WriteAsync(result, 0, result.Length);
             }
         }
     }

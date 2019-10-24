@@ -9,16 +9,16 @@ namespace TesteFTP
         // testar para ver se sobreescreve arq existente, 
         // tem como deletar o arquivo fora daqui tbm
 
-        protected async void BaixarArquivoFTP(string url, string local, string usuario, string senha) {
+        protected async void BaixarArquivoFTP(string urlServidor, string dirLocal, string usuario, string senha) {
             try {
-                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(new Uri(url));
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(new Uri(urlServidor));
 
                 request.Method = WebRequestMethods.Ftp.DownloadFile;
                 request.Credentials = new NetworkCredential(usuario, senha);
                 request.UseBinary = true;
                 using (FtpWebResponse response = (FtpWebResponse)request.GetResponse()) {
                     using (Stream rs = response.GetResponseStream()) { 
-                        using (FileStream ws = new FileStream(local, FileMode.Create)) {
+                        using (FileStream ws = new FileStream(dirLocal, FileMode.Create)) {
                             byte[] buffer = new byte[2048];
                             int bytesRead = rs.Read(buffer, 0, buffer.Length);
                             while (bytesRead > 0) {

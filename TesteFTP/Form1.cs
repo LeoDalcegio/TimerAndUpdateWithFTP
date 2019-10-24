@@ -75,6 +75,13 @@ namespace TesteFTP
 
         private void Form1_Load(object sender, EventArgs e) {
 
+           
+
+            FuncoesJSON json = new FuncoesJSON(dados);
+            
+            DadosUsuario dadosBkp = json.BuscaDadosTelaSalvo();
+            
+        
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
@@ -85,6 +92,7 @@ namespace TesteFTP
 
             FuncoesJSON json = new FuncoesJSON(dados);
             
+            json.SalvaDadosTela();
         }
     }
 }

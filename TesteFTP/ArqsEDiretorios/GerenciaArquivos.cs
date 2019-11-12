@@ -10,16 +10,14 @@ namespace TesteFTP
 
         private string[] _LocaisArquivos;
 
-        public List<string> _ArqsBaixar = new List<string>();
+        private List<string> _ArqsBaixar = new List<string>();
 
         public GerenciaArquivos(DadosUsuario dados)
         {
             _dados = dados;
-
-            _ArqsBaixar = BuscaArquivosDownload(); //lista que será retornada aq, será usada no foreach
         }
 
-        private List<string> BuscaArquivosDownload()
+        public List<string> BuscaArquivosDownload()
         {
 
             List<string> ArqABaixar = new List<string>();

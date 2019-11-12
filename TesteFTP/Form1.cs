@@ -1,5 +1,6 @@
 ﻿using System;
 using TesteFTP.XML;
+using TesteFTP.Tarefas;
 using System.Windows.Forms;
 
 namespace TesteFTP
@@ -11,17 +12,16 @@ namespace TesteFTP
         public Form1() {
             InitializeComponent();
 
-            // se usuario está reabrindo o app
+            // preenche os dados com base nos encontrados pelo bkp no Form1_Load
             if (PreencheDadosUsuario(false) == false) {
                 
                 Tarefa tarefa = new Tarefa(HorarioAgendado, dados);
+                tarefa.GerenciaTimer();
             }
     
         }
 
         // botao de salvar
-        // Tarefa tarefa = new Tarefa(HorarioAgendado, dados);
-
         private bool PreencheDadosUsuario(bool exibeMsg = true) { 
             if (ValidaInformacaoServidorFTP()) {
                 if (ValidaInformacaoDownload()) {
@@ -69,13 +69,16 @@ namespace TesteFTP
 
             if (PreencheDadosUsuario() == false) {
                 Tarefa tarefa = new Tarefa(dados);
+                tarefa.IniciarProcessoDownload();
             }
         }
 
         private void Form1_Load(object sender, EventArgs e) {
 
+            // busca bkp
             FuncoesXML funcoesXML = new FuncoesXML(dados);
             
+            // atribui bkp
             DadosUsuario dadosBkp = funcoesXML.BuscaDadosTelaSalvo();
 
 

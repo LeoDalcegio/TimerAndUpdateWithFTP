@@ -5,7 +5,7 @@ using System.Text;
 using System.Timers;
 using System.Windows.Forms;
 
-namespace TesteFTP
+namespace TesteFTP.Tarefas
 {
     class Tarefa
     {
@@ -19,29 +19,35 @@ namespace TesteFTP
 
         public Tarefa(DateTimePicker hrAgendada, DadosUsuario dados) {
             _hrAgendada = hrAgendada;
-            _dados = dados;
-            IniciarProcessoDownload();                              
+            _dados = dados;                           
         }
 
         // chamada pelo botão de download
         public Tarefa(DadosUsuario dados) {
             _dados = dados;
-            IniciarProcessoDownload();
         }
         
-        private void IniciarProcessoDownload() {
+        public void IniciarProcessoDownload() {
 
             FuncoesFTP funcoesFtp = new FuncoesFTP(_dados);
             GerenciaArquivos arquivos = new GerenciaArquivos(_dados);
 
-            Backup backup = new Backup(_dados, arquivos._ArqsBaixar);
+            var listArqs = arquivos.BuscaArquivosDownload();
+
+            Backup backup = new Backup(_dados, listArqs);
+            backup.RealizaBackup();
             
-            foreach (string arq in arquivos._ArqsBaixar) {
+            foreach (string arq in listArqs) {
 
                 funcoesFtp.DownloadArquivo();
                 
             }
              
+        }
+
+        public void GerenciaTimer()
+        {
+            IniciarProcessoDownload();
         }
 
         private bool VerificaHorario() {

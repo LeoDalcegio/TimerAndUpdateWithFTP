@@ -20,7 +20,7 @@ namespace TesteFTP
             _dados = dados;
             _arqsParaBkp = arqsParaBkp;
             Diretorios diretorios = new Diretorios(dados);
-            _pastaBackup = diretorios.DiretorioBackup(); 
+            _pastaBackup = diretorios.DiretorioBackup();
             VerificaSePastaExiste();
         }
 
@@ -30,18 +30,13 @@ namespace TesteFTP
             if (!Directory.Exists(_pastaBackup)) {
 
                 Directory.CreateDirectory(_pastaBackup);
-
-                RealizaBackup();
-
-            } else {
-                RealizaBackup();
             }
         }
 
 
         // foi feito desta forma pois assim, evita com que além de não precisar ler o arquivo
         // e copiar para outra pasta, depois excluir ele antes de fazer o download.
-        void RealizaBackup() 
+        public void RealizaBackup() 
         {
             string arqAnterior;
             foreach (string arq in _arqsParaBkp) {

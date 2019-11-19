@@ -80,9 +80,7 @@ namespace TesteFTP
             
             // atribui bkp
             DadosUsuario dadosBkp = funcoesXML.BuscaDadosTelaSalvo();
-
-
-                    
+                        
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {

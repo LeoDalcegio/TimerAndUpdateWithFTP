@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using TesteFTP.XML;
 using TesteFTP.Tarefas;
 using System.Windows.Forms;
@@ -21,7 +21,7 @@ namespace TesteFTP
     
         }
 
-        // botao de salvar
+        // criar botao de salvar
         private bool PreencheDadosUsuario(bool exibeMsg = true) { 
             if (ValidaInformacaoServidorFTP()) {
                 if (ValidaInformacaoDownload()) {
@@ -97,3 +97,4 @@ namespace TesteFTP
         }
     }
 }
+

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,9 +47,11 @@ namespace TesteFTP.Tarefas
 
         public void GerenciaTimer()
         {
+            
             IniciarProcessoDownload();
         }
 
+        // passar para a classe timer
         private bool VerificaHorario() {
             if (_hrAgendada.Value == DateTime.Now) {
                 return true;
